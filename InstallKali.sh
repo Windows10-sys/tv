@@ -22,7 +22,7 @@ if [ "$skip" != 1 ]; then
 	echo -e "\e[32m[*] \e[34mDecompressing RootFS (stripping subdirectories)..."
     # Dùng --strip-components=1 để bỏ qua thư mục 'kali-arm64'
     # Dùng --exclude để bỏ qua file thiết bị gây lỗi mknod
-	tar -xf ${tarball} -C "$folder" --strip-components=1 --exclude='dev/*' --exclude='proc/*' --exclude='sys/*' || (echo -e "\e[91mFailed to decompress RootFS!"; exit 1)
+tar -xf ${tarball} -C "$folder" --strip-components=1 --exclude='dev/*' --exclude='proc/*' --exclude='sys/*' --warning=no-unknown-keyword || (echo -e "\e[91mFailed to decompress RootFS!"; exit 1)
 fi
 mkdir -p kali-binds
 bin="start-kali.sh"
