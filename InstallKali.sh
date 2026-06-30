@@ -15,7 +15,7 @@ if [ "$skip" != 1 ]; then
 	if [ ! -f $tarball ]; then
 		echo -e "\e[32m[*] \e[34mDownloading RootFS for arm64..."
         # Đã sửa lại cú pháp wget tại đây
-		wget "https://kali.download/nethunter-images/kali-nethunter-rootfs/kali-nethunter-rootfs-full-arm64.tar.xz" -O $tarball
+		wget "https://kali.download/nethunter-images/kali-2026.2/rootfs/kali-nethunter-rootfs-full-arm64.tar.xz" -O $tarball
 	fi
 	cur=$(pwd)
 	mkdir -p "$folder"
