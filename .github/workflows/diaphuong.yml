@@ -1,0 +1,80 @@
+name: Stream All Local
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  local-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Start Streaming Local 1
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=angiang1" -c copy -f flv rtmp://42.1.99.192/live/angiang1 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=angiang2" -c copy -f flv rtmp://42.1.99.192/live/angiang2 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=angiang3" -c copy -f flv rtmp://42.1.99.192/live/angiang3 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=bacninh" -c copy -f flv rtmp://42.1.99.192/live/bacninh &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=caobang" -c copy -f flv rtmp://42.1.99.192/live/caobang &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=camau" -c copy -f flv rtmp://42.1.99.192/live/camau &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=cantho1" -c copy -f flv rtmp://42.1.99.192/live/cantho1 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=cantho2" -c copy -f flv rtmp://42.1.99.192/live/cantho2 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=cantho3" -c copy -f flv rtmp://42.1.99.192/live/cantho3 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=daklak" -c copy -f flv rtmp://42.1.99.192/live/daklak &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=dienbien" -c copy -f flv rtmp://42.1.99.192/live/dienbien &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=danang1" -c copy -f flv rtmp://42.1.99.192/live/danang1 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=danang2" -c copy -f flv rtmp://42.1.99.192/live/danang2 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=dongnai1" -c copy -f flv rtmp://42.1.99.192/live/dongnai1 &
+          ffmpeg -re -i "https://sgchill.duckdns.org/source/fptplay.m3u8?id=dongnai2" -c copy -f flv rtmp://42.1.99.192/live/dongnai2 &
+          wait
+
+  local-2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Start Streaming Local 2
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/gialai01_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/gialai &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/hue_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/hue &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxhd2/hanoitv1_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/hanoi1 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxhd1/hntv2_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/hanoi2 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/live/media/haiphong/live-hls-avc/haiphong-avc1_4000000=10000-mp4a_131600=20000.m3u8" -c copy -f flv rtmp://42.1.99.192/live/haiphong &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/haiphongplus_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/haiphong3 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/hatinh_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/hatinh &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/hungyen_2000.stream/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/hungyen &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/khanhhoa_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/khanhhoa &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/laocai_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/laocai &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/laichau_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/laichau &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/lamdong_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/lamdong1 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/lamdong02_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/lamdong2 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/nghean_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/nghean &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/phutho_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/phutho &
+          wait
+
+  local-3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Start Streaming Local 3
+        run: |
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/quangngai_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/quangngai1 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/quangngai01_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/quangngai2 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/quangninh1_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/quangninh1 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/quangninh3_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/quangninh3 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/quangtri_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/quangtri &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/thanhhoa_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/thanhhoa &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/tuyenquang_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/tuyenquang &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/fnxsd1/thainguyen_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/thainguyen &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/tayninh01_hls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/tayninh &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/live/media/vinhlong1/live247-hls-avc/vinhlong1-avc1_5600000=10000-mp4a_131600=20000.m3u8" -c copy -f flv rtmp://42.1.99.192/live/vinhlong1hd &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/live/media/vinhlong2/live247-hls-avc/vinhlong2-avc1_5600000=10000-mp4a_131600=20000.m3u8" -c copy -f flv rtmp://42.1.99.192/live/vinhlong2hd &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/live/media/vinhlong3/live247-hls-avc/vinhlong3-avc1_5600000=10000-mp4a_131600=20000.m3u8" -c copy -f flv rtmp://42.1.99.192/live/vinhlong3hd &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzhd2/vinhlong4hd_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/vinhlong4hd &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/vinhlong5_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/vinhlong5hd &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/dongthap_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/dongthap1 &
+          ffmpeg -re -analyzeduration 10000000 -probesize 10000000 -i "https://live.fptplay53.net/epzsd1/dongthaphd_vhls.smil/chunklist.m3u8" -c copy -f flv rtmp://42.1.99.192/live/dongthap2 &
+          wait
